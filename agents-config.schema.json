@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Pulsar OS — agents-config.json",
+  "description": "Configuracao de identidade dos agents/heads de um tenant Pulsar OS. Funcao/role/skills sao CORE (nao mexer aqui). Identidade (inspiracao, bio, foto, tone overrides) e TENANT — personalizavel por cliente.",
+  "type": "object",
+  "required": ["tenant_slug", "agents"],
+  "properties": {
+    "tenant_slug": {
+      "type": "string",
+      "description": "Slug curto do tenant (ex: 'pulsarh', 'padaria-do-ze', 'acme-co')",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "tenant_name": {
+      "type": "string",
+      "description": "Nome humano do tenant"
+    },
+    "founder_first_name": {
+      "type": "string",
+      "description": "Primeiro nome do founder/owner — substitui {{founder_first_name}} nos SOULs"
+    },
+    "company_name": {
+      "type": "string",
+      "description": "Nome da empresa — substitui {{company_name}} nos SOULs"
+    },
+    "agents": {
+      "type": "array",
+      "description": "Lista de agents oficiais + heads ativos do tenant",
+      "items": {
+        "type": "object",
+        "required": ["slug", "identity"],
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Slug fixo CORE (ex: 'pulseh', 'caio-hunter'). Define funcao — NAO trocar.",
+            "enum": [
+              "pulseh", "donna",
+              "alfredo", "caio", "flavia", "falconi", "simon", "dalio",
+              "alfredo-betina", "alfredo-mauricio", "alfredo-leo-dias",
+              "caio-hunter", "caio-closer",
+              "flavia-naming", "flavia-esteira", "flavia-tendencias",
+              "falconi-metodologia", "falconi-automacao", "falconi-deploy", "falconi-memoria", "falconi-infra", "falconi-seguranca",
+              "simon-cultura", "simon-curadoria-saber", "simon-recrutamento", "simon-cs",
+              "dalio-dre", "dalio-margem", "dalio-investimento", "dalio-tesouraria"
+            ]
+          },
+          "identity": {
+            "type": "object",
+            "required": ["inspiration_name"],
+            "description": "Slot de identidade — cliente personaliza aqui. Nao afeta funcao.",
+            "properties": {
+              "inspiration_name": {
+                "type": "string",
+                "description": "Nome da pessoa/personagem que inspira o tom do agent (ex: 'Tallis Gomes', 'Donna Paulsen', 'Steve Jobs', 'Dona Edna')"
+              },
+              "inspiration_bio_short": {
+                "type": "string",
+                "description": "Bio curta 1-3 frases — explica POR QUE esse arquetipo. Substitui {{agent.identity.inspiration_bio_short}}.",
+                "maxLength": 600
+              },
+              "tone_overrides": {
+                "type": "string",
+                "description": "Ajustes de tom especificos do tenant (ex: 'Mais formal', 'Pode usar girias paulistanas'). Opcional.",
+                "maxLength": 800
+              },
+              "photo_url": {
+                "type": "string",
+                "description": "URL/path da foto que representa visualmente o agent (avatar UI)",
+                "format": "uri-reference"
+              }
+            }
+          },
+          "active": {
+            "type": "boolean",
+            "default": true,
+            "description": "Se false, agent e oculto da UI mas SOUL/skill nao e deletado"
+          },
+          "skills_extra": {
+            "type": "array",
+            "description": "Skills adicionais que o tenant injeta alem do default core",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    }
+  }
+}

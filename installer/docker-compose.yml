@@ -1,0 +1,32 @@
+# Pulsar OS — docker-compose Postgres
+# Uso: docker compose --env-file ../tenant/postgres.env up -d
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: pulsar-os-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-pulsar}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      POSTGRES_DB: ${POSTGRES_DB:-pulsar_os}
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - pulsar-os-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-pulsar} -d ${POSTGRES_DB:-pulsar_os}"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    networks:
+      - pulsar-os-net
+
+networks:
+  pulsar-os-net:
+    name: pulsar-os-net
+    driver: bridge
+
+volumes:
+  pulsar-os-pgdata:
+    name: pulsar-os-pgdata

@@ -1,0 +1,20 @@
+# Build artefacts
+dist/build/
+dist/*.zip.tmp
+
+# Tenant content (cada cliente tem seu)
+tenant/*
+!tenant/.gitkeep
+!tenant/README.md
+
+# Smoke test outputs
+smoke-e2e/*-results.md
+smoke-e2e/*-output.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
