@@ -1,0 +1,43 @@
+# Secrets
+bot/.env
+.env
+.env.local
+.env.production
+
+# Pulsar OS install-specific
+.pulsar-os-id
+.pulsar-os-version
+
+# Runtime
+bot/inbox/*.json
+bot/outbox/*.json
+bot/sent/*
+bot/processed/*
+bot/state/*
+bot/logs/*
+bot/audio/incoming/*
+bot/audio/outgoing/*
+workspace/logs/*
+logs/*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+
+# Node
+node_modules/
+
+# Postgres data (Docker volume mount)
+db-data/
