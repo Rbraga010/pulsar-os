@@ -3,7 +3,7 @@
 ## Objetivo
 Contar quantas instalacoes Pulsar OS estao ATIVAS sem coletar nada pessoal/comercial do lojista. Dado e anonimo · so install ID + versao + timestamp.
 
-## Endpoint (servidor Rodrigo · qualquer deploy: War Room, Vercel separado, Cloudflare Worker)
+## Endpoint (servidor Pulsar OS central · qualquer deploy: Vercel, Cloudflare Worker, etc)
 
 ### POST /api/pulsar-os/heartbeat
 
@@ -96,6 +96,6 @@ Setup script ja configura:
 ## Status implementacao
 - [x] Spec definida
 - [x] Cron configurado no setup-pulsar-os.sh
-- [ ] **Endpoint server-side a implementar** (responsabilidade Rodrigo · escolher onde plugar: War Room, Vercel separado, Cloudflare Worker)
+- [ ] **Endpoint server-side a implementar** (escolher onde plugar: Vercel, Cloudflare Worker, etc)
 - [ ] Schema Postgres criado
 - [ ] Dashboard interno (v0.2+)

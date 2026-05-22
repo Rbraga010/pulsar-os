@@ -1,5 +1,5 @@
 -- Pulsar OS · schema telemetria heartbeat
--- Roda no DB do projeto host (War Room, Pulsar API, etc)
+-- Roda no DB do projeto host (Pulsar API central, etc)
 
 CREATE TABLE IF NOT EXISTS pulsar_os_installs (
   install_id UUID PRIMARY KEY,
