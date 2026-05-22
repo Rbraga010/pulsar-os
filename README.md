@@ -30,7 +30,7 @@ Voce paga **uma vez** pelo produto (Pulsar OS · estrutura). Depois roda na **su
 ssh root@SEU-IP
 
 # 2. Clone o repositorio
-git clone https://github.com/Rbraga010/pulsar-os.git
+git clone https://github.com/dendersonai-hue/pulsar-os.git
 cd pulsar-os
 
 # 3. Rode o wizard
