@@ -133,6 +133,6 @@ docker exec -it pulsar-os-db psql -U pulsar -d pulsar_os
 
 ## Suporte
 
-- GitHub Issues: https://github.com/dendersonai-hue/pulsar-os/issues
+- GitHub Issues: https://github.com/Rbraga010/pulsar-os/issues
 - Email: rodrigo@pulsarh.com.br
 - Telegram group: (em breve)
