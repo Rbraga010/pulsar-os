@@ -11,12 +11,13 @@
 
 services:
   clara:
+    # Imagem oficial publicada em GHCR · pull em 1-2 min em vez de buildar 5-10 min.
+    # Sobrescreve com tag específica se quiser pinar: CLARA_IMAGE=ghcr.io/rbraga010/clara:0.2.0 docker compose up
+    image: ${CLARA_IMAGE:-ghcr.io/rbraga010/clara:latest}
+    # Build local fica como fallback · roda com `docker compose build` se a imagem não estiver disponível
     build:
-      # Context é o parent · Dockerfile enxerga ../workspace direto
-      # (sem symlinks). Plugin Telegram instala em runtime no entrypoint.
       context: ..
       dockerfile: docker/Dockerfile
-    image: clara:latest
     container_name: clara
     restart: unless-stopped
 

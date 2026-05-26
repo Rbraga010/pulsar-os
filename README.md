@@ -22,7 +22,7 @@ O wizard pede só 3 coisas:
 3. Sua região Claro (pra puxar o book de varejo certo)
 
 Depois:
-1. Build da imagem (5-10 min · café enquanto roda)
+1. Pull da imagem (1-2 min · `ghcr.io/rbraga010/clara:latest`)
 2. `docker exec -it clara claude login` (1x · OAuth Claude Max)
 3. Abre Telegram · manda "oi Clara" · onboarding começa
 

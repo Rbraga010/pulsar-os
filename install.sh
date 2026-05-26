@@ -169,8 +169,13 @@ EOF
 
 # ── 7 · sobe stack ─────────────────────────────────────────────────
 boot_stack() {
-  say "Buildando imagem da Clara (5-10 min na primeira vez · vai tomar um café)"
-  ( cd "$INSTALL_PATH/docker" && docker compose build )
+  say "Puxando imagem oficial da Clara (ghcr.io/rbraga010/clara:latest · 1-2 min)"
+  if ( cd "$INSTALL_PATH/docker" && docker compose pull 2>&1 | tail -5 ); then
+    ok "Imagem baixada"
+  else
+    warn "Pull falhou · vou buildar local (5-10 min · vai tomar um café)"
+    ( cd "$INSTALL_PATH/docker" && docker compose build )
+  fi
 
   say "Subindo Clara em background"
   ( cd "$INSTALL_PATH/docker" && docker compose up -d )
