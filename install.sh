@@ -185,23 +185,43 @@ boot_stack() {
 }
 
 # ── 8 · login do cérebro ───────────────────────────────────────────
-prompt_brain_login() {
+brain_login() {
   cat <<EOF
 
-${BOLD}── FALTA SÓ 1 PASSO MANUAL ──${RESET}
+${BOLD}── ESCOLHE O CÉREBRO DA CLARA ──${RESET}
 
-O "cérebro" da Clara é uma sessão sua de Claude Max ou ChatGPT Plus
-(você já paga · agora aproveita). Loga 1 vez, persistente pra sempre:
+O cérebro da Clara é uma sessão sua de Claude Max ou ChatGPT Plus
+(você já paga · agora aproveita). Loga 1 vez · persiste pra sempre.
 
-  ${BOLD}Opção A · Claude Max (recomendado):${RESET}
-    docker exec -it clara claude login
-
-  ${BOLD}Opção B · ChatGPT/Codex:${RESET}
-    docker exec -it clara codex login
-
-(O comando abre um link · você loga no navegador · pronto.)
+  ${BOLD}A)${RESET} Claude Max (Anthropic · recomendado)
+  ${BOLD}B)${RESET} Codex (OpenAI ChatGPT Plus/Pro)
+  ${BOLD}P)${RESET} Pular · faço depois manualmente
 
 EOF
+
+  # Detecta se temos TTY pra modo interativo
+  if [ ! -t 0 ]; then
+    warn "Sem TTY (rodando via curl-pipe-bash · OK) · não dá pra abrir login interativo daqui."
+    warn "DEPOIS dessa instalação, abre OUTRO terminal e roda manualmente:"
+    echo "    docker exec -it clara claude login"
+    echo "    (ou: docker exec -it clara codex login)"
+    return 0
+  fi
+
+  read -rp "${BOLD}Escolha [A/B/P]:${RESET} " BRAIN < /dev/tty || BRAIN="P"
+  case "${BRAIN^^}" in
+    A)
+      say "Abrindo claude login interativo · loga no navegador e volta aqui"
+      docker exec -it clara claude login || warn "claude login falhou · roda manual depois: docker exec -it clara claude login"
+      ;;
+    B)
+      say "Abrindo codex login interativo · loga no navegador e volta aqui"
+      docker exec -it clara codex login || warn "codex login falhou · roda manual depois: docker exec -it clara codex login"
+      ;;
+    *)
+      warn "Pulado · lembra de rodar depois: docker exec -it clara claude login (ou codex login)"
+      ;;
+  esac
 }
 
 # ── 9 · fala com ela ───────────────────────────────────────────────
@@ -240,5 +260,5 @@ ask_telegram
 ask_regiao
 write_env
 boot_stack
-prompt_brain_login
+brain_login
 final_handshake

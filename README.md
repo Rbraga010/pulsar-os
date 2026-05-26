@@ -26,7 +26,9 @@ Depois:
 2. `docker exec -it clara claude login` (1x · OAuth Claude Max)
 3. Abre Telegram · manda "oi Clara" · onboarding começa
 
-**Pré-requisitos:** VPS Linux ou PC com Docker. 2GB RAM. Root.
+**Pré-requisitos (produção):** VPS Linux (Ubuntu/Debian/Fedora). 2GB RAM. Root. Por que VPS? Clara precisa estar ativa **24/7** pra responder cliente · notebook que desliga = Clara dorme. VPS na Hetzner/Digital Ocean/Vultr custa ~R$ 30/mês.
+
+> 💡 **Quer testar antes de comprar VPS?** Funciona em Mac e Windows também via Docker Desktop · ver [docs/teste-mac-windows.md](docs/teste-mac-windows.md). Lembra: Clara só responde enquanto o computador estiver ligado.
 
 ---
 
