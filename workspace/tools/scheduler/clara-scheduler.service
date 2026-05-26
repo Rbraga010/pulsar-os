@@ -1,0 +1,17 @@
+[Unit]
+Description=Clara Scheduler · varre posts_agendados e publica
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/opt/clones/clara/workspace/tools/scheduler
+ExecStart=/usr/bin/python3 /opt/clones/clara/workspace/tools/scheduler/scheduler.py --interval=60
+Restart=always
+RestartSec=10
+StandardOutput=append:/opt/clones/clara/workspace/logs/scheduler.log
+StandardError=append:/opt/clones/clara/workspace/logs/scheduler.log
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>{{title}}</title>
+<style>{{{__cssInline}}}</style>
+<style>
+/* T2 · ajustes específicos pro frame Wendell-ensina-Claude */
+
+.claro-pill {
+  position: absolute;
+  top: 44px;
+  right: 60px;
+  background: #FFFFFF;
+  color: #E60000;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.claro-pill::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: #E60000;
+  border-radius: 50%;
+  display: inline-block;
+}
+section.slide.bg-white .claro-pill,
+section.slide.bg-cream .claro-pill {
+  background: #E60000;
+  color: #FFFFFF;
+}
+section.slide.bg-white .claro-pill::before,
+section.slide.bg-cream .claro-pill::before {
+  background: #FFFFFF;
+}
+
+.author-pill {
+  position: absolute;
+  top: 44px;
+  left: 70px;
+  background: rgba(255,255,255,0.16);
+  color: #FFFFFF;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  z-index: 6;
+}
+section.slide.bg-white .author-pill,
+section.slide.bg-cream .author-pill {
+  background: rgba(0,0,0,0.07);
+  color: #111;
+}
+
+.swipe-arrow {
+  font-size: 80px;
+  font-weight: 900;
+  margin-top: 30px;
+  line-height: 1;
+}
+
+.money-mega {
+  font-family: 'Anton', sans-serif;
+  font-size: 360px;
+  line-height: 0.88;
+  letter-spacing: -8px;
+}
+.money-mega .currency {
+  font-size: 130px;
+  vertical-align: top;
+  margin-right: 14px;
+  letter-spacing: 0;
+}
+
+.pain-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 40px;
+}
+.pain-list li {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.3;
+  padding-left: 64px;
+  position: relative;
+}
+.pain-list li::before {
+  content: "✕";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 42px;
+  font-weight: 900;
+  color: #E60000;
+}
+section.slide.bg-dark .pain-list li::before,
+section.slide.bg-red .pain-list li::before {
+  color: #FFFFFF;
+}
+
+.feature-list-tight {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 32px;
+}
+.feature-list-tight li {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.3;
+  padding-left: 56px;
+  position: relative;
+}
+.feature-list-tight li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 38px;
+  font-weight: 900;
+  color: #1DB954;
+}
+section.slide.bg-red .feature-list-tight li::before,
+section.slide.bg-dark .feature-list-tight li::before {
+  color: #FFFFFF;
+}
+
+.table-compare {
+  margin-top: 40px;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 30px;
+  font-weight: 600;
+}
+.table-compare th,
+.table-compare td {
+  text-align: left;
+  padding: 22px 18px;
+  border-bottom: 2px solid rgba(255,255,255,0.18);
+}
+section.slide.bg-white .table-compare th,
+section.slide.bg-white .table-compare td,
+section.slide.bg-cream .table-compare th,
+section.slide.bg-cream .table-compare td {
+  border-bottom: 2px solid rgba(0,0,0,0.12);
+}
+.table-compare th {
+  font-size: 26px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 800;
+  opacity: 0.7;
+}
+.table-compare td.win {
+  color: #E60000;
+  font-weight: 900;
+  font-size: 38px;
+}
+section.slide.bg-red .table-compare td.win,
+section.slide.bg-dark .table-compare td.win {
+  color: #FFD700;
+}
+
+.objection-quote {
+  font-size: 78px;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-top: 40px;
+}
+.objection-answer {
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-top: 50px;
+}
+.objection-answer strong {
+  font-weight: 900;
+  color: #E60000;
+}
+section.slide.bg-dark .objection-answer strong,
+section.slide.bg-red .objection-answer strong {
+  color: #FFD700;
+}
+
+.cta-mega {
+  font-family: 'Anton', sans-serif;
+  font-size: 150px;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+}
+.cta-keyword {
+  display: inline-block;
+  background: #FFFFFF;
+  color: #E60000;
+  padding: 8px 32px;
+  border-radius: 16px;
+  margin: 12px 0;
+  letter-spacing: 4px;
+}
+
+.brand-foot {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.hero-band-soft {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 380px;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+.hero-band-soft::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.7) 75%, var(--slide-fade, #FFFFFF) 100%);
+}
+
+.center-stack {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<!-- ========== SLIDE 1 · CAPA (R$ 4.380) ========== -->
+<section class="slide bg-red">
+  {{#if slide1_image}}
+  <div class="bg-photo" style="background-image: url('{{slide1_image}}'); opacity: 0.15;"></div>
+  {{/if}}
+  <div class="author-pill">{{author}}</div>
+  <div class="claro-pill">CLARO</div>
+
+  <div class="slide-content">
+    <div class="tiny" style="margin-top: 100px;">QUANTO SUA LOJA</div>
+    <div class="title-big" style="margin-top: 12px;">DEIXOU DE FATURAR<br>ESSE MÊS</div>
+
+    <div style="margin: 60px 0;">
+      <div class="money-mega"><span class="currency">R$</span>4.380</div>
+    </div>
+
+    <div class="cta" style="margin-top: auto;">
+      <div class="body-lg" style="opacity: 0.95; font-weight: 800;">{{slide1_sub}}</div>
+      <div class="swipe-arrow">→</div>
+    </div>
+  </div>
+
+  <div class="brand-foot">1 / 6 · ARRASTA</div>
+</section>
+
+<!-- ========== SLIDE 2 · A DOR ========== -->
+<section class="slide bg-dark">
+  {{#if slide2_image}}
+  <div class="hero-band-soft" style="background-image: url('{{slide2_image}}');"></div>
+  {{/if}}
+  <div class="author-pill">{{author}}</div>
+  <div class="claro-pill">CLARO</div>
+
+  <div class="slide-content" style="margin-top: 320px;">
+    <div class="tiny" style="color: #FFD700;">VOCÊ FECHA A LOJA ÀS 19H</div>
+    <h2 class="title-section" style="margin-top: 16px; font-size: 64px;">E AÍ?</h2>
+
+    <ul class="pain-list">
+      {{#each pain_points}}
+      <li>{{this}}</li>
+      {{/each}}
+    </ul>
+
+    <div class="cta" style="margin-top: auto;">
+      <div class="body" style="opacity: 0.85;">{{slide2_kicker}}</div>
+    </div>
+  </div>
+
+  <div class="brand-foot" style="color: rgba(255,255,255,0.6);">2 / 6</div>
+</section>
+
+<!-- ========== SLIDE 3 · O MECANISMO (CLAUDE) ========== -->
+<section class="slide bg-white">
+  <div class="author-pill">{{author}}</div>
+  <div class="claro-pill">CLARO</div>
+
+  <div class="slide-content" style="margin-top: 130px;">
+    <div class="tiny" style="color: #E60000;">TEM UMA IA BRASILEIRA</div>
+    <h2 class="title-section" style="margin-top: 16px; font-size: 60px;">QUE FAZ ISSO POR VOCÊ <span style="color: #E60000;">DE GRAÇA</span></h2>
+
+    <div class="body" style="margin-top: 28px; font-weight: 700; opacity: 0.85;">
+      Chama <strong style="color: #E60000;">CLAUDE</strong> (Anthropic).<br>
+      Você manda áudio no WhatsApp dela:
+    </div>
+
+    <div style="margin-top: 20px; background: #FFF5F5; border-left: 8px solid #E60000; padding: 24px 28px; border-radius: 12px;">
+      <div class="body" style="font-style: italic; font-weight: 600;">"fechei plano com o Marcelo · 79,99 · vence dia 15"</div>
+    </div>
+
+    <ul class="feature-list-tight">
+      {{#each claude_actions}}
+      <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <div class="brand-foot" style="color: rgba(0,0,0,0.55);">3 / 6</div>
+</section>
+
+<!-- ========== SLIDE 4 · O CÁLCULO ========== -->
+<section class="slide bg-dark">
+  <div class="author-pill">{{author}}</div>
+  <div class="claro-pill">CLARO</div>
+
+  <div class="slide-content" style="margin-top: 130px;">
+    <div class="tiny" style="color: #FFD700;">CONTA COMIGO</div>
+    <h2 class="title-section" style="margin-top: 16px; font-size: 56px;">A MATEMÁTICA QUE DÓI</h2>
+
+    <table class="table-compare">
+      <thead>
+        <tr>
+          <th>O QUE</th>
+          <th>SEM CLAUDE</th>
+          <th>COM CLAUDE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Plano ofertado</td>
+          <td>1 em 10</td>
+          <td class="win">7 em 10</td>
+        </tr>
+        <tr>
+          <td>Follow-up portabilidade</td>
+          <td>nunca</td>
+          <td class="win">dia 13 auto</td>
+        </tr>
+        <tr>
+          <td>Ativações Controle/mês</td>
+          <td>8</td>
+          <td class="win">30</td>
+        </tr>
+        <tr>
+          <td><strong>Comissão extra</strong></td>
+          <td>R$ 640</td>
+          <td class="win">R$ 4.380</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="cta" style="margin-top: 40px;">
+      <div class="body-lg" style="font-weight: 900; color: #FFD700;">DIFERENÇA: R$ 3.740 / MÊS</div>
+    </div>
+  </div>
+
+  <div class="brand-foot" style="color: rgba(255,255,255,0.6);">4 / 6</div>
+</section>
+
+<!-- ========== SLIDE 5 · OBJECTION KILLER ========== -->
+<section class="slide bg-cream">
+  <div class="author-pill">{{author}}</div>
+  <div class="claro-pill">CLARO</div>
+
+  <div class="slide-content" style="margin-top: 130px;">
+    <div class="tiny" style="color: #E60000;">A OBJEÇÃO QUE TODO LOJISTA DÁ</div>
+
+    <div class="objection-quote">"MAS EU NÃO SEI MEXER COM IA"</div>
+
+    <div class="objection-answer">
+      Você <strong>não precisa</strong>.<br>
+      Manda áudio · ela responde texto.<br>
+      É WhatsApp · igual falar com a esposa.
+    </div>
+
+    <ul class="feature-list-tight" style="margin-top: 40px;">
+      <li><strong>Custo:</strong> R$ 0 (plano grátis dá conta de loja pequena)</li>
+      <li><strong>Setup:</strong> 8 minutos</li>
+      <li><strong>Quem instala:</strong> a gente · de graça</li>
+    </ul>
+  </div>
+
+  <div class="brand-foot" style="color: rgba(0,0,0,0.55);">5 / 6</div>
+</section>
+
+<!-- ========== SLIDE 6 · CTA (COMENTA CLARO) ========== -->
+<section class="slide bg-red">
+  <div class="author-pill">{{author}}</div>
+  <div class="claro-pill">CLARO</div>
+
+  <div class="slide-content center-stack">
+    <div class="tiny" style="margin-bottom: 30px;">QUER OS R$ 4.380 ESSE MÊS?</div>
+
+    <div class="cta-mega">
+      COMENTA<br>
+      <span class="cta-keyword">CLARO</span><br>
+      AQUI EMBAIXO
+    </div>
+
+    <div class="body" style="margin-top: 60px; opacity: 0.95; max-width: 800px;">
+      Eu te chamo na DM · te mostro o passo a passo de instalar a Claude na sua loja em <strong>8 min</strong>.
+    </div>
+
+    <div class="small" style="margin-top: 30px; opacity: 0.85;">não é venda · não é curso · é o setup</div>
+  </div>
+
+  <div class="brand-foot">6 / 6 · COMENTA "CLARO"</div>
+</section>
+
+</body>
+</html>

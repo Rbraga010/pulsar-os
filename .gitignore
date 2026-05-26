@@ -1,43 +1,43 @@
-# Secrets
-bot/.env
-.env
-.env.local
-.env.production
+# Pulsar OS · gitignore
 
-# Pulsar OS install-specific
-.pulsar-os-id
-.pulsar-os-version
+# Segredos · nunca subir
+docker/.env
+docker/.env.bak.*
+**/.env
+**/.env.local
+**/*credentials*.json
+**/*creds*.json
+**/auth_*.json
+**/auth_*/
 
-# Runtime
-bot/inbox/*.json
-bot/outbox/*.json
-bot/sent/*
-bot/processed/*
-bot/state/*
-bot/logs/*
-bot/audio/incoming/*
-bot/audio/outgoing/*
-workspace/logs/*
-logs/*
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Editor
-.vscode/
-.idea/
-*.swp
+# Node
+node_modules/
+npm-debug.log*
 
 # Python
 __pycache__/
 *.pyc
-*.pyo
-venv/
 .venv/
 
-# Node
-node_modules/
+# Dados do lojista (cada instalação é única)
+workspace/cerebro/memory/dono.md
+workspace/cerebro/memory/loja.md
+workspace/cerebro/memory/metas.md
+workspace/cerebro/memory/historico-conversas.md
+workspace/cerebro/memory/clientes-cache.md
+workspace/cerebro/memory/identidade-visual-loja.md
+workspace/data/clara.db
+workspace/data/renders/
+workspace/data/carrosseis/
+workspace/data/audio/
+workspace/data/videos/
+workspace/data/images/
 
-# Postgres data (Docker volume mount)
-db-data/
+# Logs
+*.log
+logs/
+workspace/logs/
+
+# OS
+.DS_Store
+Thumbs.db

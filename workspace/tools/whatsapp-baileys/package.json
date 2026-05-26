@@ -1,0 +1,16 @@
+{
+  "name": "clara-whatsapp-baileys",
+  "version": "0.1.0",
+  "description": "Stub Clara para WhatsApp via Baileys (gratuito · self-hosted · sem WhatsApp Business API paga). Lojista pareia 1x via QR code, depois Clara envia/recebe.",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "pair": "node pair.js",
+    "send": "node send.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.9",
+    "qrcode-terminal": "^0.12.0",
+    "pino": "^9.5.0"
+  }
+}

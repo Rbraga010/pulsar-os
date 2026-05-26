@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>{{store_name}} · {{plan_name}}</title>
+<style>{{{__cssInline}}}</style>
+</head>
+<body>
+
+<!-- ========== SLIDE 1 · CAPA (gancho) ========== -->
+<section class="slide bg-red">
+  <img class="claro-logo" src="{{logo_path}}" alt="Claro">
+  {{#if slide1_image}}
+  <div class="bg-photo" style="background-image: url('{{slide1_image}}'); opacity: 0.25;"></div>
+  {{/if}}
+
+  <div class="slide-content">
+    <div class="tiny" style="margin-top: 30px;">{{eyebrow}}</div>
+
+    <div style="margin-top: 70px;">
+      <div class="title-mega">{{gb_amount}}GB</div>
+      <div class="title-big" style="margin-top: 30px;">POR R$ {{price_integer}},{{price_cents}}<span style="font-size: 0.5em; font-weight: 700;">/mês</span></div>
+    </div>
+
+    <div class="cta">
+      <div class="body-lg" style="opacity: 0.95;">{{slide1_hook}}</div>
+      <div class="cta-arrow">↓</div>
+    </div>
+  </div>
+
+  {{#if slide1_image}}
+  <div class="corner-image" style="background-image: url('{{slide1_image}}');"></div>
+  {{/if}}
+
+  <div class="footer-bar">
+    <span>{{store_name}}</span>
+    <span>{{slide_count_label}}</span>
+  </div>
+</section>
+
+<!-- ========== SLIDE 2 · O QUE VEM NO PLANO ========== -->
+<section class="slide bg-white">
+  {{#if slide2_image}}
+  <div class="hero-band" style="background-image: url('{{slide2_image}}');"></div>
+  {{/if}}
+  <img class="claro-logo" src="{{logo_path}}" alt="Claro">
+
+  <div class="slide-content {{#if slide2_image}}with-hero{{/if}}">
+    <div class="tiny" style="color: #E60000;">O QUE TÁ INCLUSO</div>
+    <h2 class="title-section" style="margin-top: 20px;">{{plan_name}}<br>R$ {{price_integer}},{{price_cents}}/mês</h2>
+
+    <ul class="feature-list" style="margin-top: 16px;">
+      {{#each features}}
+      <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <div class="footer-bar">
+    <span>{{store_name}}</span>
+    <span>2/{{total_slides}}</span>
+  </div>
+</section>
+
+<!-- ========== SLIDE 3 · PRA QUEM É ========== -->
+<section class="slide bg-cream">
+  {{#if slide3_image}}
+  <div class="hero-band" style="background-image: url('{{slide3_image}}');"></div>
+  {{/if}}
+  <img class="claro-logo" src="{{logo_path}}" alt="Claro">
+
+  <div class="slide-content {{#if slide3_image}}with-hero{{/if}}">
+    <div class="tiny" style="color: #E60000;">SE LIGA</div>
+    <h2 class="title-section" style="margin-top: 20px;">BOM PRA VOCÊ QUE:</h2>
+
+    <ul class="bullet-list" style="margin-top: 16px;">
+      {{#each pain_points}}
+      <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <div class="footer-bar">
+    <span>{{store_name}}</span>
+    <span>3/{{total_slides}}</span>
+  </div>
+</section>
+
+<!-- ========== SLIDE 4 · PREÇO ========== -->
+<section class="slide bg-dark">
+  {{#if slide4_image}}
+  <div class="bg-photo" style="background-image: url('{{slide4_image}}');"></div>
+  {{/if}}
+  <img class="claro-logo" src="{{logo_path}}" alt="Claro">
+
+  <div class="slide-content">
+    <div style="margin-top: 60px;">
+      <div class="tiny" style="text-align: center;">O PREÇO</div>
+    </div>
+
+    <div style="margin: auto 0; text-align: center;">
+      <div class="price-mega"><span class="currency">R$</span>{{price_integer}}<span class="cents">,{{price_cents}}</span></div>
+      <div class="body" style="margin-top: 20px; opacity: 0.85;">por mês</div>
+    </div>
+
+    <div class="price-helper">
+      {{price_helper_line1}}<br>
+      <span style="opacity: 0.75; font-size: 32px;">{{price_helper_line2}}</span>
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    <span>{{store_name}}</span>
+    <span>4/{{total_slides}}</span>
+  </div>
+</section>
+
+<!-- ========== SLIDE 5 · OBJECTION KILLER ========== -->
+<section class="slide bg-white">
+  {{#if slide5_image}}
+  <div class="hero-band" style="background-image: url('{{slide5_image}}'); height: 320px;"></div>
+  {{/if}}
+  <img class="claro-logo" src="{{logo_path}}" alt="Claro">
+
+  <div class="slide-content {{#if slide5_image}}" style="margin-top: 260px;{{/if}}">
+    <div class="tiny" style="color: #E60000;">{{slide5_eyebrow}}</div>
+    <h2 class="title-section" style="margin-top: 20px;">{{slide5_title}}</h2>
+
+    <div class="versus">
+      <div class="box">
+        <h4>{{vs_left_label}}</h4>
+        <div class="num">{{vs_left_num}}</div>
+        <p>{{vs_left_text}}</p>
+      </div>
+      <div class="box highlight">
+        <h4>{{vs_right_label}}</h4>
+        <div class="num">{{vs_right_num}}</div>
+        <p>{{vs_right_text}}</p>
+      </div>
+    </div>
+
+    <div class="cta">
+      <div class="body" style="font-weight: 800;">{{slide5_punchline}}</div>
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    <span>{{store_name}}</span>
+    <span>5/{{total_slides}}</span>
+  </div>
+</section>
+
+<!-- ========== SLIDE 6 · CTA (loja) ========== -->
+<section class="slide bg-red">
+  {{#if slide6_image}}
+  <div class="hero-band" style="background-image: url('{{slide6_image}}'); height: 380px;"></div>
+  {{/if}}
+  <img class="claro-logo" src="{{logo_path}}" alt="Claro">
+
+  <div class="slide-content {{#if slide6_image}}" style="margin-top: 320px;{{/if}}">
+    <div class="tiny">ATIVA AGORA</div>
+    <h2 class="title-big" style="margin-top: 30px;">{{cta_headline}}</h2>
+    <p class="body-lg" style="margin-top: 24px; opacity: 0.95;">{{cta_sub}}</p>
+
+    <div style="margin-top: auto;">
+      <div class="subtitle" style="margin-bottom: 14px;">📍 {{store_address}}</div>
+      <div class="subtitle" style="margin-bottom: 14px;">📱 {{store_whatsapp}}</div>
+      {{#if store_instagram}}
+      <div class="subtitle">@ {{store_instagram}}</div>
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    <span>{{store_name}}</span>
+    <span>6/{{total_slides}}</span>
+  </div>
+</section>
+
+</body>
+</html>

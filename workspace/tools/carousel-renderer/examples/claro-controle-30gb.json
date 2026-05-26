@@ -1,0 +1,47 @@
+{
+  "store_name": "Loja do Rodrigo",
+  "store_address": "Rua Exemplo · Sorocaba/SP",
+  "store_whatsapp": "(15) 9 9999-9999",
+  "store_instagram": "lojadorodrigo",
+
+  "plan_name": "CLARO CONTROLE",
+  "gb_amount": 30,
+  "price_integer": 54,
+  "price_cents": 90,
+  "eyebrow": "OFERTA DA SEMANA",
+  "total_slides": 6,
+  "slide_count_label": "1/6 · arrasta",
+
+  "slide1_hook": "vem que eu te mostro como",
+
+  "features": [
+    "15GB livres pra usar como quiser",
+    "5GB de bônus pra redes sociais",
+    "10GB de bônus extra",
+    "WhatsApp · Instagram · Facebook ILIMITADOS",
+    "Ligações ilimitadas"
+  ],
+
+  "pain_points": [
+    "usa WhatsApp o dia inteiro",
+    "assiste vídeo no busão",
+    "tá cansado de ficar pedindo wifi",
+    "quer parar de surtar no fim do mês quando a internet acaba"
+  ],
+
+  "price_helper_line1": "débito automático + fatura digital · fidelidade 12 meses",
+  "price_helper_line2": "menos de R$ 2 por dia",
+
+  "slide5_eyebrow": "AINDA NO PRÉ-PAGO?",
+  "slide5_title": "FAZ A CONTA:",
+  "vs_left_label": "PRÉ-PAGO",
+  "vs_left_num": "15GB",
+  "vs_left_text": "Recarga R$ 30 a cada 30 dias · acaba antes do mês",
+  "vs_right_label": "CONTROLE 30GB",
+  "vs_right_num": "30GB",
+  "vs_right_text": "Dobro de internet por menos de R$ 25 a mais",
+  "slide5_punchline": "DOBRA INTERNET. NÃO DOBRA PREÇO.",
+
+  "cta_headline": "ATIVA AQUI NA LOJA",
+  "cta_sub": "a gente resolve tudo na hora · sem letrinha miúda"
+}

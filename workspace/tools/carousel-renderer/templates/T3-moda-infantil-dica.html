@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>{{store_name}} · {{post_title}}</title>
+<style>{{{__cssInline}}}</style>
+<style>
+  /* === Identidade Luna Maria Kids · paleta + fontes oficiais (do site) === */
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --luna-brown: #6B5A53;
+    --luna-brown-dark: #5A4B3C;
+    --luna-beige: #F5F1E8;
+    --luna-offwhite: #FAF8F5;
+    --luna-pink: #F0C5DC;
+    --luna-pink-light: #FADCE8;
+    --luna-blue: #A8C9E8;
+    --luna-blue-light: #D4E8F8;
+    --luna-gold: #E8D5B8;
+    --luna-lilac: #EDBFE3;
+  }
+
+  html, body { font-family: 'Quicksand', sans-serif; color: var(--luna-brown-dark); }
+
+  section.slide { padding: 90px 80px; }
+  section.slide.bg-cover { background: var(--luna-beige); color: var(--luna-brown-dark); }
+  section.slide.bg-soft { background: var(--luna-offwhite); color: var(--luna-brown-dark); }
+  section.slide.bg-pink-soft { background: var(--luna-pink-light); color: var(--luna-brown-dark); }
+  section.slide.bg-blue-soft { background: var(--luna-blue-light); color: var(--luna-brown-dark); }
+  section.slide.bg-brown { background: var(--luna-brown); color: var(--luna-offwhite); }
+
+  /* === Tipografia === */
+  .lmk-eyebrow {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--luna-brown);
+    opacity: 0.75;
+  }
+  section.slide.bg-brown .lmk-eyebrow { color: var(--luna-gold); opacity: 1; }
+
+  .lmk-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 110px;
+    line-height: 1.0;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    margin-top: 36px;
+    color: var(--luna-brown-dark);
+  }
+  section.slide.bg-brown .lmk-title { color: var(--luna-offwhite); }
+  .lmk-title em {
+    font-style: italic;
+    font-weight: 800;
+    color: var(--luna-brown);
+  }
+  section.slide.bg-brown .lmk-title em { color: var(--luna-pink); }
+
+  .lmk-number {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 320px;
+    line-height: 0.85;
+    font-weight: 900;
+    color: var(--luna-pink);
+    letter-spacing: -10px;
+  }
+  section.slide.bg-pink-soft .lmk-number { color: var(--luna-brown); opacity: 0.85; }
+  section.slide.bg-blue-soft .lmk-number { color: var(--luna-blue); }
+  section.slide.bg-brown .lmk-number { color: var(--luna-gold); }
+
+  .lmk-mistake {
+    font-family: 'Playfair Display', serif;
+    font-size: 68px;
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-top: 20px;
+    color: var(--luna-brown-dark);
+  }
+
+  .lmk-explain {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 36px;
+    line-height: 1.4;
+    font-weight: 500;
+    margin-top: 30px;
+    max-width: 880px;
+    color: var(--luna-brown-dark);
+    opacity: 0.92;
+  }
+  section.slide.bg-brown .lmk-explain { color: var(--luna-offwhite); opacity: 0.92; }
+
+  .lmk-fix {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 34px;
+    line-height: 1.4;
+    font-weight: 600;
+    margin-top: 36px;
+    padding: 28px 32px;
+    background: var(--luna-offwhite);
+    border-left: 6px solid var(--luna-pink);
+    border-radius: 18px;
+    color: var(--luna-brown-dark);
+    box-shadow: 0 8px 28px rgba(107, 90, 83, 0.08);
+  }
+  .lmk-fix strong { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; color: var(--luna-brown); }
+
+  .lmk-tips {
+    list-style: none;
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .lmk-tips li {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 38px;
+    line-height: 1.3;
+    font-weight: 500;
+    padding-left: 70px;
+    position: relative;
+  }
+  .lmk-tips li::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    top: -2px;
+    font-size: 44px;
+    color: var(--luna-gold);
+  }
+
+  .lmk-store-badge {
+    position: absolute;
+    top: 56px;
+    right: 70px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: 1px;
+    background: var(--luna-brown);
+    color: var(--luna-offwhite);
+    padding: 14px 26px;
+    border-radius: 999px;
+    z-index: 5;
+  }
+  section.slide.bg-brown .lmk-store-badge {
+    background: var(--luna-offwhite);
+    color: var(--luna-brown);
+  }
+
+  .lmk-cta-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 92px;
+    line-height: 1.0;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin-top: 36px;
+    color: var(--luna-brown-dark);
+  }
+  .lmk-cta-headline em { font-style: italic; color: var(--luna-brown); }
+
+  .lmk-cta-sub {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 38px;
+    line-height: 1.4;
+    font-weight: 500;
+    margin-top: 30px;
+    max-width: 880px;
+    color: var(--luna-brown-dark);
+    opacity: 0.92;
+  }
+
+  .lmk-store-line {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 34px;
+    font-weight: 600;
+    margin-top: 16px;
+    color: var(--luna-brown);
+  }
+
+  .lmk-footer {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 26px 80px;
+    background: rgba(107, 90, 83, 0.07);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--luna-brown);
+  }
+  section.slide.bg-brown .lmk-footer {
+    background: rgba(250, 248, 245, 0.12);
+    color: var(--luna-offwhite);
+  }
+
+  .lmk-arrow-down {
+    font-family: 'Playfair Display', serif;
+    font-size: 130px;
+    line-height: 1;
+    margin-top: 50px;
+    color: var(--luna-brown);
+    opacity: 0.85;
+  }
+
+  .lmk-bottom-tag {
+    margin-top: auto;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--luna-brown);
+    opacity: 0.55;
+  }
+
+  /* === Ornamentos de marca · estrelas/luas no canto === */
+  .lmk-ornament {
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+    color: var(--luna-pink);
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .lmk-ornament.tr { top: 380px; right: 80px; font-size: 60px; }
+  .lmk-ornament.bl { bottom: 200px; left: 70px; font-size: 50px; color: var(--luna-blue); }
+  .lmk-ornament.br { bottom: 280px; right: 120px; font-size: 70px; color: var(--luna-gold); }
+  section.slide.bg-brown .lmk-ornament { opacity: 0.7; }
+
+  .slide-content { position: relative; z-index: 3; }
+
+  /* === Avatar Luna · presença obrigatória em capa/bônus/CTA === */
+  .lmk-avatar {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;
+    -webkit-mask-image: radial-gradient(circle at center, #000 62%, transparent 92%);
+    mask-image: radial-gradient(circle at center, #000 62%, transparent 92%);
+    pointer-events: none;
+  }
+  .lmk-avatar.capa {
+    width: 460px;
+    height: 460px;
+    bottom: 80px;
+    right: -20px;
+  }
+  .lmk-avatar.bonus {
+    width: 400px;
+    height: 400px;
+    bottom: 80px;
+    right: 30px;
+  }
+  .lmk-avatar.cta {
+    width: 520px;
+    height: 520px;
+    bottom: 80px;
+    right: -40px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== SLIDE 1 · CAPA ========== -->
+<section class="slide bg-cover">
+  <div class="lmk-ornament tr">✦</div>
+  <div class="lmk-store-badge">{{store_name}}</div>
+  <div class="slide-content">
+    <div class="lmk-eyebrow">Pra mãe que cuida</div>
+    <h1 class="lmk-title">{{{slide1_title_html}}}</h1>
+    <div class="lmk-explain" style="font-weight:600;">{{slide1_hook}}</div>
+    <div class="lmk-arrow-down">↓</div>
+    <div class="lmk-bottom-tag">Arrasta pro lado</div>
+  </div>
+  {{#if avatar_capa}}<div class="lmk-avatar capa" style="background-image: url('{{{avatar_capa}}}');"></div>{{/if}}
+  <div class="lmk-footer">
+    <span>{{store_handle}}</span>
+    <span>1/{{total_slides}}</span>
+  </div>
+</section>
+
+<!-- ========== SLIDE 2 · ERRO 1 ========== -->
+<section class="slide bg-soft">
+  <div class="lmk-ornament tr">✦</div>
+  <div class="lmk-store-badge">{{store_name}}</div>
+  <div class="slide-content">
+    <div class="lmk-eyebrow">Erro nº 1</div>
+    <div class="lmk-number">1</div>
+    <h2 class="lmk-mistake">{{mistake_1_title}}</h2>
+    <div class="lmk-explain">{{mistake_1_explain}}</div>
+    <div class="lmk-fix"><strong>Faz assim →</strong> {{mistake_1_fix}}</div>
+  </div>
+  <div class="lmk-footer">
+    <span>{{store_handle}}</span>
+    <span>2/{{total_slides}}</span>
+  </div>
+</section>
+
+<!-- ========== SLIDE 3 · ERRO 2 ========== -->
+<section class="slide bg-pink-soft">
+  <div class="lmk-ornament bl">☾</div>
+  <div class="lmk-store-badge">{{store_name}}</div>
+  <div class="slide-content">
+    <div class="lmk-eyebrow">Erro nº 2</div>
+    <div class="lmk-number">2</div>
+    <h2 class="lmk-mistake">{{mistake_2_title}}</h2>
+    <div class="lmk-explain">{{mistake_2_explain}}</div>
+    <div class="lmk-fix"><strong>Faz assim →</strong> {{mistake_2_fix}}</div>
+  </div>
+  <div class="lmk-footer">
+    <span>{{store_handle}}</span>
+    <span>3/{{total_slides}}</span>
+  </div>
+</section>
+
+<!-- ========== SLIDE 4 · ERRO 3 ========== -->
+<section class="slide bg-blue-soft">
+  <div class="lmk-ornament tr">✦</div>
+  <div class="lmk-store-badge">{{store_name}}</div>
+  <div class="slide-content">
+    <div class="lmk-eyebrow">Erro nº 3</div>
+    <div class="lmk-number">3</div>
+    <h2 class="lmk-mistake">{{mistake_3_title}}</h2>
+    <div class="lmk-explain">{{mistake_3_explain}}</div>
+    <div class="lmk-fix"><strong>Faz assim →</strong> {{mistake_3_fix}}</div>
+  </div>
+  <div class="lmk-footer">
+    <span>{{store_handle}}</span>
+    <span>4/{{total_slides}}</span>
+  </div>
+</section>
+
+<!-- ========== SLIDE 5 · BÔNUS ========== -->
+<section class="slide bg-brown">
+  <div class="lmk-ornament tr">✦</div>
+  <div class="lmk-ornament bl">☾</div>
+  <div class="lmk-store-badge">{{store_name}}</div>
+  <div class="slide-content">
+    <div class="lmk-eyebrow">Dica de mãe pra mãe</div>
+    <h2 class="lmk-title" style="font-size:82px;">{{{slide5_title_html}}}</h2>
+    <ul class="lmk-tips" style="max-width: 620px;">
+      {{#each bonus_tips}}
+      <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  </div>
+  {{#if avatar_bonus}}<div class="lmk-avatar bonus" style="background-image: url('{{{avatar_bonus}}}');"></div>{{/if}}
+  <div class="lmk-footer">
+    <span>{{store_handle}}</span>
+    <span>5/{{total_slides}}</span>
+  </div>
+</section>
+
+<!-- ========== SLIDE 6 · CTA ========== -->
+<section class="slide bg-cover">
+  <div class="lmk-ornament tr">✦</div>
+  <div class="lmk-store-badge">{{store_name}}</div>
+  <div class="slide-content" style="max-width: 640px;">
+    <div class="lmk-eyebrow">Antes de você fechar</div>
+    <h2 class="lmk-cta-headline">{{{cta_headline_html}}}</h2>
+    <p class="lmk-cta-sub">{{cta_sub}}</p>
+
+    <div style="margin-top:auto;">
+      <div class="lmk-store-line">{{store_name}} · {{store_city}}</div>
+      {{#if store_instagram}}<div class="lmk-store-line">@ {{store_instagram}}</div>{{/if}}
+      {{#if store_whatsapp}}<div class="lmk-store-line">WhatsApp · {{store_whatsapp}}</div>{{/if}}
+      {{#if store_address}}<div class="lmk-store-line">{{store_address}}</div>{{/if}}
+    </div>
+  </div>
+  {{#if avatar_cta}}<div class="lmk-avatar cta" style="background-image: url('{{{avatar_cta}}}');"></div>{{/if}}
+  <div class="lmk-footer">
+    <span>{{store_handle}}</span>
+    <span>6/{{total_slides}}</span>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "clara-carousel-renderer",
+  "version": "0.1.0",
+  "description": "Renderiza carrosséis Instagram 1080x1350 a partir de templates HTML + JSON (Clara · Pulsar OS).",
+  "main": "render.js",
+  "bin": {
+    "clara-render": "./render.js"
+  },
+  "scripts": {
+    "test": "node render.js templates/T1-claro-30gb.html examples/claro-controle-30gb.json /tmp/clara-test-carousel/"
+  },
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "handlebars": "^4.7.8",
+    "puppeteer-core": "^22.15.0"
+  }
+}

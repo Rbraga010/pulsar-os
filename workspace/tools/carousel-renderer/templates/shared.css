@@ -1,0 +1,360 @@
+/* Clara · Shared CSS pra templates de carrossel
+   Estética Claro: vermelho #E60000 + branco + bold tipográfico
+   Mobile-first, 1080x1350 retrato Instagram */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Anton&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html, body {
+  width: 1080px;
+  margin: 0;
+  padding: 0;
+  background: #FFFFFF;
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: #111;
+}
+
+section.slide {
+  width: 1080px;
+  height: 1350px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 80px 70px;
+}
+
+/* Variantes de fundo */
+section.slide.bg-red {
+  background: #E60000;
+  color: #FFFFFF;
+}
+section.slide.bg-dark {
+  background: #0D0D0D;
+  color: #FFFFFF;
+}
+section.slide.bg-white {
+  background: #FFFFFF;
+  color: #111;
+}
+section.slide.bg-cream {
+  background: #FFF5F5;
+  color: #111;
+}
+
+/* Tipografia */
+.eyebrow {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-bottom: 30px;
+}
+
+.title-mega {
+  font-family: 'Anton', sans-serif;
+  font-size: 220px;
+  line-height: 0.92;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+}
+
+.title-big {
+  font-size: 110px;
+  line-height: 1.0;
+  font-weight: 900;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+}
+
+.title-mid {
+  font-size: 72px;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.title-section {
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.subtitle {
+  font-size: 44px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.body {
+  font-size: 38px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.body-lg {
+  font-size: 46px;
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+.small {
+  font-size: 28px;
+  line-height: 1.3;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+.tiny {
+  font-size: 24px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  font-weight: 700;
+}
+
+/* Listas */
+.feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.feature-list li {
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.3;
+  padding-left: 60px;
+  position: relative;
+}
+.feature-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 42px;
+  font-weight: 900;
+  color: #1DB954;
+}
+section.slide.bg-red .feature-list li::before {
+  color: #FFFFFF;
+}
+
+.bullet-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.bullet-list li {
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 1.35;
+  padding-left: 40px;
+  position: relative;
+}
+.bullet-list li::before {
+  content: "·";
+  position: absolute;
+  left: 8px;
+  top: -6px;
+  font-size: 70px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* Logo / badge Claro */
+.claro-badge {
+  position: absolute;
+  top: 50px;
+  right: 60px;
+  background: #FFFFFF;
+  color: #E60000;
+  padding: 14px 26px;
+  border-radius: 8px;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+section.slide.bg-white .claro-badge,
+section.slide.bg-cream .claro-badge {
+  background: #E60000;
+  color: #FFFFFF;
+}
+
+/* Logo oficial Claro (PNG · Wikimedia Commons) */
+.claro-logo {
+  position: absolute;
+  top: 44px;
+  right: 60px;
+  width: 130px;
+  height: auto;
+  z-index: 5;
+}
+section.slide.bg-red .claro-logo,
+section.slide.bg-dark .claro-logo {
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 10px 14px;
+}
+
+/* Banda de imagem (hero) · usada em slides com foto temática */
+.hero-band {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 460px;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+.hero-band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 70%, var(--slide-fade, #FFFFFF) 100%);
+}
+section.slide.bg-red { --slide-fade: #E60000; }
+section.slide.bg-dark { --slide-fade: #0D0D0D; }
+section.slide.bg-white { --slide-fade: #FFFFFF; }
+section.slide.bg-cream { --slide-fade: #FFF5F5; }
+
+.slide-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.slide-content.with-hero {
+  margin-top: 380px;
+}
+
+/* Imagem decorativa pequena (canto/corner accent) */
+.corner-image {
+  position: absolute;
+  bottom: 110px;
+  right: -40px;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  border: 8px solid rgba(255,255,255,0.85);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  z-index: 2;
+}
+
+/* Foto sutil de fundo · usada quando o preço é o herói */
+.bg-photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.18;
+  filter: grayscale(0.4);
+  z-index: 0;
+}
+
+/* Bloco CTA */
+.cta {
+  margin-top: auto;
+  padding-top: 40px;
+}
+.cta-arrow {
+  font-size: 60px;
+  font-weight: 900;
+  margin-top: 30px;
+}
+
+/* Faixa rodapé */
+.footer-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.06);
+  padding: 28px 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 26px;
+  font-weight: 600;
+}
+section.slide.bg-red .footer-bar,
+section.slide.bg-dark .footer-bar {
+  background: rgba(255,255,255,0.12);
+}
+
+/* Comparativo lado a lado */
+.versus {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 30px;
+}
+.versus .box {
+  padding: 40px 36px;
+  border-radius: 24px;
+  background: rgba(0,0,0,0.06);
+}
+.versus .box.highlight {
+  background: #E60000;
+  color: #FFFFFF;
+}
+.versus .box h4 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.versus .box p {
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.versus .box .num {
+  font-size: 88px;
+  font-weight: 900;
+  line-height: 1;
+  margin: 16px 0;
+}
+
+/* Preço gigante slide 4 */
+.price-mega {
+  font-family: 'Anton', sans-serif;
+  font-size: 320px;
+  line-height: 0.9;
+  letter-spacing: -8px;
+  text-align: center;
+}
+.price-mega .currency {
+  font-size: 120px;
+  vertical-align: top;
+  margin-right: 12px;
+  letter-spacing: 0;
+}
+.price-mega .cents {
+  font-size: 120px;
+  vertical-align: top;
+  letter-spacing: 0;
+}
+
+.price-helper {
+  text-align: center;
+  font-size: 38px;
+  font-weight: 600;
+  margin-top: 30px;
+  line-height: 1.4;
+}

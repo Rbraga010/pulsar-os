@@ -1,0 +1,51 @@
+# Exclui lixo pesado do contexto de build.
+# A imagem só precisa do código + assets · node_modules eu recompilo dentro do builder.
+
+**/.git
+**/.gitignore
+**/.github
+**/node_modules
+**/__pycache__
+**/.pytest_cache
+**/*.pyc
+**/.venv
+**/venv
+
+# Caches locais
+**/.next
+**/.cache
+**/dist
+**/build
+
+# Logs e backups
+**/*.log
+**/*.bak
+**/*.bak-*
+**/logs/*
+!**/logs/.gitkeep
+
+# Renders pesados (sempre regerados em runtime)
+workspace/data/renders/*
+workspace/data/audio/*
+workspace/data/videos/*
+workspace/data/images/*
+workspace/data/carrosseis/*
+!workspace/data/renders/.gitkeep
+!workspace/data/audio/.gitkeep
+!workspace/data/videos/.gitkeep
+!workspace/data/images/.gitkeep
+!workspace/data/carrosseis/.gitkeep
+
+# Sqlite local fica no volume · não dentro da imagem
+workspace/data/*.db
+workspace/data/*.db-journal
+
+# Secrets · nunca dentro da imagem
+workspace/.env
+.env
+*.pem
+*.key
+
+# Sistema operacional
+.DS_Store
+Thumbs.db

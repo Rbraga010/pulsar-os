@@ -1,0 +1,60 @@
+# Clara · Pulsar OS · stack do lojista mentorado PulsarH.AI
+#
+# Pré-requisitos:
+#   1. Docker + Compose instalados na VPS
+#   2. Arquivo .env preenchido (cp .env.example .env)
+#
+# Pra subir:    docker compose up -d
+# Pra ver logs: docker compose logs -f
+# Pra parar:    docker compose down
+# Pra logar motor: docker exec -it clara claude login  (ou codex login)
+
+services:
+  clara:
+    build:
+      # Context é o parent · Dockerfile enxerga ../workspace direto
+      # (sem symlinks). Plugin Telegram instala em runtime no entrypoint.
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: clara:latest
+    container_name: clara
+    restart: unless-stopped
+
+    # .env tem o token Telegram + APIs opcionais
+    env_file:
+      - .env
+
+    # Repassa variáveis pro container (compose injeta automaticamente do env_file)
+    environment:
+      - TELEGRAM_BOT_TOKEN
+      - CHAT_ID_OWNER
+      - GOOGLE_AI_API_KEY
+      - OPENAI_API_KEY
+      - BRAVE_SEARCH_API_KEY
+      - GOOGLE_APPLICATION_CREDENTIALS
+      - TZ=America/Sao_Paulo
+
+    # Estado persistente · NUNCA na imagem
+    volumes:
+      # Credenciais Claude Max / Codex + plugin Telegram state
+      - clara-claude:/root/.claude
+      # Memória da Clara (dono.md · loja.md · metas.md · histórico)
+      - clara-memory:/workspace/cerebro/memory
+      # DB SQLite + renders + áudio + imagens geradas
+      - clara-data:/workspace/data
+
+    # Stdin/tty pra docker exec funcionar (claude login interativo)
+    stdin_open: true
+    tty: true
+
+    # Logs rotativos · não enche disco do lojista
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  clara-claude:
+  clara-memory:
+  clara-data:
