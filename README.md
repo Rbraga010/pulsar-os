@@ -1,10 +1,15 @@
 # Pulsar OS · Clara
 
-**Sua sócia agêntica especialista em vender Claro.**
+**Sua sócia agêntica que rentabiliza a sua loja · vender mais e gastar menos do produto que você já vende · com ÊNFASE em Plano Controle Claro como alavanca extra de receita.**
 
-Pulsar OS distribui a **Clara** · uma sócia que mora no seu Telegram e te ajuda a vender mais Plano Claro (Controle · Pré · Combos Multi PP · Fibra · Box TV+) sem você ter que parar a loja pra pensar em conteúdo, follow-up, post ou Pix.
+Pulsar OS distribui a **Clara** · uma sócia que mora no seu Telegram e cuida do corre completo da sua loja:
 
-Ela conhece o **book oficial Claro de varejo** (preços, combos, calculadora de economia, argumentos Ookla 2026), faz **SPIN simplificado**, monta **carrossel/reel** com a identidade da sua loja e **WhatsApp/Instagram/Google Meu Negócio** automatizados.
+- **Vende mais o produto que você JÁ vende** (roupa, calçado, padaria, autopeças, o que for) · carrossel, reel, follow-up, presença digital
+- **Faz você gastar menos** · negociação, corte de gordura, fornecedor
+- **Tem ênfase brutal em Plano Controle Claro** · scripts, campanhas, material de venda, calculadora de economia, argumentos Ookla 2026 · alavanca de receita recorrente de alta margem
+- **Tira a parte chata de cima de você** · Pix Copia-e-Cola, follow-up WhatsApp, post no GMB, resposta de review
+
+Hierarquia: **loja primeiro** · Controle Claro segundo (mas com ênfase brutal). A Clara nunca esquece que a loja é SUA · Claro é receita extra fortíssima · não substituto.
 
 Zero mensalidade pra você. Você usa sua conta de **Claude Max** ou **ChatGPT Plus/Pro** que já paga · custo zero adicional.
 
@@ -34,18 +39,27 @@ Depois:
 
 ## O que a Clara faz
 
-### Vender mais Claro
-- Conhece os planos vigentes (puxa do book oficial + scrape semanal do site Vertex)
-- Faz SPIN simplificado pra qualificar prospect
-- Monta carrossel de plano · usa calculadora de economia (R$ 343,40 streamings avulsos vs R$ 134,90 no Box)
-- Roteiro de abordagem WhatsApp pra portabilidade · upgrade · combos
-- Argumentos Ookla 2026: 5G mais rápido · Wi-Fi mais rápido · 5G iPhone
+### Vender mais o produto da sua loja (prioridade 1)
+- Carrossel/reel/panfleto do que você quer empurrar essa semana
+- Follow-up de cliente que entrou e não fechou
+- Presença digital constante (Instagram, GMB, WhatsApp Status)
+- Calendário editorial automático (post agendado roda sozinho)
+- OCR de panfleto da concorrência (Tesseract · você manda foto, ela lê)
+- Resposta automática de review no Google (no seu tom · depois de você aprovar)
 
-### Vender qualquer coisa (genérico)
+### Vender mais Plano Controle Claro (ênfase brutal)
+- Conhece os planos vigentes (book oficial varejo 13/05/2026 + scrape semanal Vertex)
+- Faz SPIN simplificado pra qualificar prospect
+- Monta carrossel do plano com calculadora de economia (R$ 343,40 streamings avulsos vs R$ 134,90 no Box)
+- Roteiro de abordagem WhatsApp pra portabilidade · upgrade · combo Multi
+- Argumentos Ookla 2026: 5G mais rápido · Wi-Fi mais rápido · 5G iPhone
+- Identifica cliente do balcão como potencial Controle e te avisa
+
+### Operação do dia a dia (tira a parte chata)
 - Gera Pix Copia-e-Cola + QR Code (BACEN · 0 taxa)
-- Follow-up de cliente esquecido (CRM SQLite local)
-- Post no Google Meu Negócio + resposta automática de review
-- Agenda post (scheduler em systemd)
+- Manda WhatsApp em seu nome (após você aprovar)
+- Agenda post (scheduler em systemd · roda 24/7)
+- CRM SQLite local: quem comprou, quando, o que · pra você nunca perder cliente
 
 ### Conteúdo digital
 - Carrossel 6 slides (Instagram 1080x1350) renderizado em PNG
