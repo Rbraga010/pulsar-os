@@ -133,6 +133,46 @@ CREATE TABLE IF NOT EXISTS eventos (
 CREATE INDEX IF NOT EXISTS idx_eventos_ts ON eventos(ts);
 
 -- =========================
+-- 8. VENDAS (registro de venda · serie temporal pra forecast e relatórios)
+-- =========================
+CREATE TABLE IF NOT EXISTS vendas (
+  id            INTEGER PRIMARY KEY AUTOINCREMENT,
+  cliente_id    INTEGER REFERENCES clientes(id) ON DELETE SET NULL,
+  produto_id    INTEGER REFERENCES produtos_loja(id) ON DELETE SET NULL,
+  produto_nome  TEXT,
+  categoria     TEXT,
+  qtd           INTEGER NOT NULL DEFAULT 1,
+  preco_unit    REAL NOT NULL,
+  desconto      REAL DEFAULT 0,
+  total         REAL NOT NULL,
+  forma_pgto    TEXT,
+  parcelas      INTEGER DEFAULT 1,
+  vendedor      TEXT,
+  observacoes   TEXT,
+  vendida_em    TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  created_at    TEXT DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS idx_vendas_data ON vendas(vendida_em);
+CREATE INDEX IF NOT EXISTS idx_vendas_produto ON vendas(produto_id, vendida_em);
+CREATE INDEX IF NOT EXISTS idx_vendas_cliente ON vendas(cliente_id, vendida_em);
+
+-- =========================
+-- 9. NPS · respostas de pesquisa pós-venda
+-- =========================
+CREATE TABLE IF NOT EXISTS nps_respostas (
+  id            INTEGER PRIMARY KEY AUTOINCREMENT,
+  cliente_id    INTEGER REFERENCES clientes(id) ON DELETE SET NULL,
+  venda_id      INTEGER REFERENCES vendas(id) ON DELETE SET NULL,
+  nota          INTEGER,                  -- 0-10
+  classificacao TEXT,                     -- 'detrator' (0-6) · 'neutro' (7-8) · 'promotor' (9-10)
+  comentario    TEXT,
+  enviada_em    TEXT DEFAULT CURRENT_TIMESTAMP,
+  respondida_em TEXT,
+  canal         TEXT DEFAULT 'whatsapp'
+);
+CREATE INDEX IF NOT EXISTS idx_nps_classificacao ON nps_respostas(classificacao);
+
+-- =========================
 -- VIEWS úteis
 -- =========================
 CREATE VIEW IF NOT EXISTS v_followups_pendentes AS

@@ -74,6 +74,9 @@ Lê SEMPRE antes de agir:
 - `cerebro/skills/comercial-spin-claro.md` · vendas Claro (SPIN simplificado)
 - `cerebro/skills/comercial-planos-claro.md` · catálogo planos (integra claro-canon)
 - `cerebro/skills/claro-canon.md` · catálogo oficial scraped semanal (fonte de verdade)
+- `cerebro/skills/clara-pricing.md` · precificação inteligente · Clara sugere preço · lojista decide · usa tool `pricing-monitor`
+- `cerebro/skills/clara-forecast.md` · forecast de venda + sugestão de compra · usa tool `forecast` em cima da tabela `vendas`
+- `cerebro/skills/clara-nps.md` · pesquisa pós-venda automática T+7 + alerta de detrator · usa scheduler + whatsapp-baileys
 
 ## Tools instaladas
 
@@ -94,6 +97,8 @@ Todas em `/opt/clones/clara/workspace/tools/` · todas GRATUITAS:
 | **video-remotion** | `bash tools/video-remotion/render.sh <props.json>` | Reel 1080x1920 15s 3 cards animados · 100% local · sem API |
 | **websearch** | `python3 tools/websearch/search.py "<query>"` | Pesquisa web · DuckDuckGo grátis (default) · Brave opcional |
 | **google-workspace** | `python3 tools/google-workspace/calendar.py create_event ...` ou `gmail.py send_email ...` | Calendar + Gmail do dono · OAuth 1x · grátis |
+| **pricing-monitor** | `python3 tools/pricing-monitor/monitor.py "<descrição>" --cidade=<cidade>` | Varredura de preço de mercado · DDG grátis · Clara SUGERE preço · NUNCA muda sem aprovação · skill `clara-pricing.md` |
+| **forecast** | `python3 tools/forecast/forecast.py --por=produto --horizonte=4` | Projeção de venda via média móvel ponderada da tabela `vendas` · sugere compra do fornecedor · skill `clara-forecast.md` |
 
 **Vision · nativa.** Clara enxerga foto direto pela sessão Claude Max (ou Codex) · usar `Read <caminho-da-foto.jpg>` na sessão · não precisa de tool/script separado.
 

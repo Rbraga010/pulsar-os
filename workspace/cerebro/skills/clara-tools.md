@@ -45,6 +45,9 @@ Toda vez que Clara classifica intent e precisa **executar** algo (gerar imagem �
 | "agenda reunião com X amanhã" | `google-workspace/calendar` | `python3 tools/google-workspace/calendar.py create_event --title=... --start=...` · exige OAuth Google |
 | "lista meus compromissos hoje" | `google-workspace/calendar` | `python3 tools/google-workspace/calendar.py list_events` · exige OAuth Google |
 | "manda email pro fornecedor" | `google-workspace/gmail` | `python3 tools/google-workspace/gmail.py send_email --to=... --subject=... --body=...` · exige OAuth Google |
+| "como tá meu preço do tênis X?" / "tô caro?" | `pricing-monitor` | `python3 tools/pricing-monitor/monitor.py "<descricao>" --cidade=<cidade>` · grátis · websearch DDG · skill `clara-pricing.md` |
+| "quanto vou vender de Y semana que vem?" / "preciso comprar do fornecedor?" | `forecast` | `python3 tools/forecast/forecast.py --por=produto --horizonte=4` · lê tabela `vendas` do SQLite · skill `clara-forecast.md` |
+| "manda pesquisa pro cliente que comprou semana passada" | flow NPS via scheduler + whatsapp-baileys | scheduler agenda T+7 · whatsapp-baileys envia · Clara classifica resposta automaticamente · skill `clara-nps.md` |
 
 ---
 
