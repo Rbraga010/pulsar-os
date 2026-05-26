@@ -1,29 +1,29 @@
 #!/usr/bin/env bash
 #
-# Pulsar OS · install wizard pra Clara (sócia agêntica especialista Claro)
-# v0.2.0
+# Rentabiliza.ai · install wizard pra Clara (sócia agêntica do lojista)
+# v0.3.0
 #
 # Uso: curl -fsSL https://raw.githubusercontent.com/Rbraga010/pulsar-os/main/install.sh | sudo bash
 #  ou: ./install.sh   (depois de git clone)
 #
-# Pré-req: VPS ou PC com Linux (Ubuntu/Debian/Fedora). 2GB RAM. Root.
+# Pré-req: VPS Linux (Ubuntu 22.04 LTS recomendado · Debian/Fedora também). 2GB RAM. Root.
 #
 # O que faz, na ordem:
-#  1. Pergunta caminho de instalação (default /opt/pulsar-os)
+#  1. Pergunta caminho de instalação (default /opt/rentabiliza-ai)
 #  2. Detecta + instala Docker se faltar
 #  3. Clona/atualiza repo
-#  4. Pergunta token Telegram + chat_id (link pro BotFather/userinfobot)
-#  5. Pergunta região Claro do lojista (pra book varejo regional)
-#  6. Escreve .env
-#  7. Sobe stack (docker compose up -d)
-#  8. Instrui pra rodar `docker exec -it clara claude login` (ou codex)
-#  9. Mostra o handle do bot pro lojista mandar /start
+#  4. Pergunta SOMENTE o token do bot Telegram (chat_id é detectado automaticamente
+#     via pairing quando o lojista mandar /start no bot)
+#  5. Escreve .env
+#  6. Sobe stack (docker compose up -d)
+#  7. Instrui pra rodar `docker exec -it clara claude login` (ou codex)
+#  8. Mostra como falar com o bot pelo Telegram
 
 set -euo pipefail
 
-VERSION="0.2.0"
+VERSION="0.3.0"
 REPO_URL="${PULSAR_REPO_URL:-https://github.com/Rbraga010/pulsar-os.git}"
-DEFAULT_PATH="/opt/pulsar-os"
+DEFAULT_PATH="/opt/rentabiliza-ai"
 
 # ── helpers ──────────────────────────────────────────────────────────
 RED=$'\033[0;31m'; GREEN=$'\033[0;32m'; YELLOW=$'\033[1;33m'
@@ -39,8 +39,8 @@ banner() {
 
   ┌─────────────────────────────────────────────┐
   │                                             │
-  │   PULSAR OS · Clara                         │
-  │   sua sócia agêntica especialista Claro     │
+  │   RENTABILIZA.AI · Clara                    │
+  │   a sócia agêntica do seu negócio           │
   │                                             │
   └─────────────────────────────────────────────┘
 
@@ -84,69 +84,35 @@ fetch_repo() {
     say "Repo já clonado · puxando últimas mudanças"
     git -C "$INSTALL_PATH" pull --ff-only
   else
-    say "Clonando repo Pulsar OS"
+    say "Clonando repo Rentabiliza.ai"
     mkdir -p "$(dirname "$INSTALL_PATH")"
     git clone --depth 1 "$REPO_URL" "$INSTALL_PATH"
   fi
   ok "Repo em $INSTALL_PATH"
 }
 
-# ── 4 · telegram ────────────────────────────────────────────────────
+# ── 4 · telegram (somente token · chat_id detectado via pairing) ────
 ask_telegram() {
   cat <<EOF
 
 ${BOLD}── BOT TELEGRAM ──${RESET}
 
-Você precisa de 2 coisinhas do Telegram:
+Você só precisa de 1 coisinha · em 1 minuto:
 
-  1) Token do bot · cria 1 minuto:
-     - abre @BotFather no Telegram
-     - manda /newbot
-     - dá um nome (ex: "Clara da sua loja") e username terminando em _bot
-     - copia o token que ele te manda
+  - abre @BotFather no Telegram
+  - manda /newbot
+  - dá um nome (ex: "Clara da sua loja") e username terminando em _bot
+  - copia o token que ele te manda
 
-  2) Seu chat_id (pra Clara responder SÓ você):
-     - abre @userinfobot no Telegram
-     - manda /start
-     - copia o número que ele te responde
+Depois da instalação, quando você mandar a primeira mensagem
+pro seu bot, a Clara reconhece automaticamente que é você
+(pairing). Nada de chat_id, configuração extra, nada.
 
 EOF
   read -rp "${BOLD}Token do bot Telegram:${RESET} " TG_TOKEN < /dev/tty
   [ -z "$TG_TOKEN" ] && die "Token vazio · não dá pra subir sem isso"
 
-  read -rp "${BOLD}Seu chat_id:${RESET} " CHAT_ID < /dev/tty
-  [ -z "$CHAT_ID" ] && die "chat_id vazio · não dá pra subir sem isso"
-
-  ok "Telegram configurado"
-}
-
-# ── 5 · região Claro ───────────────────────────────────────────────
-ask_regiao() {
-  cat <<EOF
-
-${BOLD}── REGIÃO CLARO ──${RESET}
-
-A Clara é especialista vendedora Claro. Preços do book de varejo
-mudam por região · me diz a sua pra eu puxar o catálogo certo.
-
-  1) SP Capital (default · book já embutido)
-  2) Interior SP
-  3) Rio de Janeiro
-  4) Sul (PR/SC/RS)
-  5) Nordeste
-  6) Outra
-
-EOF
-  read -rp "${BOLD}Sua região [1]:${RESET} " R < /dev/tty || true
-  case "${R:-1}" in
-    1) REGIAO_CLARO="SP_CAPITAL" ;;
-    2) REGIAO_CLARO="SP_INTERIOR" ;;
-    3) REGIAO_CLARO="RJ" ;;
-    4) REGIAO_CLARO="SUL" ;;
-    5) REGIAO_CLARO="NORDESTE" ;;
-    *) REGIAO_CLARO="OUTRA" ;;
-  esac
-  ok "Região: $REGIAO_CLARO (Clara vai pedir mais detalhe no onboarding)"
+  ok "Telegram configurado · pairing fica armado pra primeira /start"
 }
 
 # ── 6 · .env ────────────────────────────────────────────────────────
@@ -160,8 +126,6 @@ write_env() {
   cat > "$env_file" <<EOF
 # Gerado pelo install.sh em $(date -Iseconds)
 TELEGRAM_BOT_TOKEN=$TG_TOKEN
-CHAT_ID_OWNER=$CHAT_ID
-REGIAO_CLARO=$REGIAO_CLARO
 EOF
   chmod 600 "$env_file"
   ok ".env escrito em $env_file (chmod 600 · só root lê)"
@@ -257,7 +221,6 @@ ask_install_path
 ensure_docker
 fetch_repo
 ask_telegram
-ask_regiao
 write_env
 boot_stack
 brain_login

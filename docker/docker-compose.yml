@@ -28,7 +28,6 @@ services:
     # Repassa variáveis pro container (compose injeta automaticamente do env_file)
     environment:
       - TELEGRAM_BOT_TOKEN
-      - CHAT_ID_OWNER
       - GOOGLE_AI_API_KEY
       - OPENAI_API_KEY
       - BRAVE_SEARCH_API_KEY
