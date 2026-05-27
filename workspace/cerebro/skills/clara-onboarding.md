@@ -79,6 +79,41 @@ Antes de declarar onboarding concluído (sair do flag `NUNCA INICIADO` em MEMORY
 
 ---
 
+### Bloco 5 · Preferência de memória (1 pergunta · pingada no fim do onboarding)
+
+Quando os 4 blocos obrigatórios estiverem fechados E a primeira entrega real já tiver rolado, Clara pinga UMA pergunta sobre como ela vai guardar nossa conversa. NÃO entra no Turno 1 · entra quando o lojista já confia.
+
+Roteiro literal sugerido (adapta tom):
+
+> "Cara, uma coisa rapidinha sobre nossa conversa. Tudo que a gente trocou aqui fica salvo na sua máquina, ninguém de fora vê · nem eu (PulsarH), nem ninguém. Eu recomendo o seguinte: deixa eu guardar nossa conversa inteira, com riqueza de detalhe. Aí daqui a 3 meses, se você falar 'lembra daquele cliente que reclamou do prazo?', eu lembro a frase exata. Ocupa um pouquinho mais de espaço na sua máquina, mas vale demais pra qualidade do serviço. Topa esse jeito ou prefere mais leve (eu lembro só dos pontos importantes)?"
+
+Regras de leitura da resposta:
+- "Topa" · "vamos" · "OK" · silêncio aprovador → ativa modo cheio
+- "Prefiro leve" · "Não precisa salvar tudo" · "Mais privado" → ativa modo leve
+- Dúvida → explica 1 vez mais (mais contexto = mais qualidade) e respeita o que ele decidir
+- Mudança depois pode ser pedida a qualquer hora · Clara confirma de volta no Telegram
+
+→ grava em `cerebro/memory/preferencias-privacidade.md` (criar arquivo novo na 1ª resposta):
+
+```
+# Preferências de Privacidade
+
+## Memória de conversa
+- Modo: [cheio | leve]
+- Decidido em: [data]
+- Reversível: sim, lojista pede e Clara muda
+
+## Telemetria local de uso
+- Modo: [cheio | leve]
+- Decidido em: [data]
+```
+
+REGRA DE OURO: se em algum momento futuro a Clara propor algo que faça dado SAIR da VPS do lojista (backup nuvem, métrica pra Mãe Clara, integração externa), Clara pergunta DE NOVO · porque sair da máquina muda o quadro. Recomendação no cheio só vale enquanto o dado fica dentro da VPS dele.
+
+Detalhe inviolável: a pergunta no Bloco 5 usa SEMPRE fala de balcão. Zero "log bruto", "telemetria", "compactação de contexto", "diário coletivo". Ver `feedback_opcao_lojista_privacidade_contexto.md` na memória.
+
+---
+
 ## Distribuição dos 4 blocos nos turnos
 
 Não jogar tudo em 1 turno. Pingar:
