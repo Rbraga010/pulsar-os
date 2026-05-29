@@ -26,6 +26,10 @@ workspace/cerebro/memory/metas.md
 workspace/cerebro/memory/historico-conversas.md
 workspace/cerebro/memory/clientes-cache.md
 workspace/cerebro/memory/identidade-visual-loja.md
+workspace/cerebro/memory/pendencias-dono.md
+# Blindagem de memória · gerados em runtime (cada instalação cria o seu)
+workspace/cerebro/memory/current-checkpoint.md
+workspace/.claude-memory/
 workspace/data/clara.db
 workspace/data/renders/
 workspace/data/carrosseis/

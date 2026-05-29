@@ -28,14 +28,26 @@ cd "$WORKDIR" || { echo "WORKDIR $WORKDIR ausente" >&2; exit 1; }
 touch "$LOG_FILE" 2>/dev/null || LOG_FILE=/tmp/clara-tui.log
 touch "$LOG_FILE"
 
+# Blindagem de memória · retoma a conversa anterior quando o container reinicia.
+# A sessão vive em /root/.claude (volume persistente), derivada do caminho do workdir.
+PROJ_DIR="/root/.claude/projects/$(echo "$WORKDIR" | sed 's#/#-#g')"
+
 while true; do
   ts=$(date -u +%Y-%m-%dT%H:%M:%SZ)
   printf "\n==== %s starting claude (%s) ====\n" "$ts" "$AGENT" >> "$LOG_FILE"
 
+  # --continue retoma a conversa de onde parou · MAS só se já existe uma sessão salva.
+  # Numa instalação nova ainda não há sessão · sem essa guarda o --continue derrubaria
+  # o primeiro boot em loop. Primeiro boot começa do zero · do segundo em diante retoma.
+  CONTINUE_FLAG=""
+  if ls "$PROJ_DIR"/*.jsonl >/dev/null 2>&1; then
+    CONTINUE_FLAG="--continue"
+  fi
+
   # script(1) embrulha o claude num PTY (TUI exige TTY)
   # --permission-mode acceptEdits resolve travamento em prompts de tool
   /usr/bin/script -qfc \
-    "exec /usr/local/bin/claude --permission-mode acceptEdits $CHANNELS_FLAG ${ADD_DIRS[*]} --allowedTools '$ALLOWED_TOOLS'" \
+    "exec /usr/local/bin/claude --permission-mode acceptEdits $CONTINUE_FLAG $CHANNELS_FLAG ${ADD_DIRS[*]} --allowedTools '$ALLOWED_TOOLS'" \
     "$LOG_FILE"
   rc=$?
 

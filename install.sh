@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # Rentabiliza.ai · install wizard pra Clara (sócia agêntica do lojista)
-# v0.3.0
+# v0.4.0 · blindagem de memória (retoma conversa no restart + checkpoint automático)
 #
 # Uso: curl -fsSL https://raw.githubusercontent.com/Rbraga010/pulsar-os/main/install.sh | sudo bash
 #  ou: ./install.sh   (depois de git clone)
@@ -21,7 +21,7 @@
 
 set -euo pipefail
 
-VERSION="0.3.0"
+VERSION="0.4.0"
 REPO_URL="${PULSAR_REPO_URL:-https://github.com/Rbraga010/pulsar-os.git}"
 DEFAULT_PATH="/opt/rentabiliza-ai"
 

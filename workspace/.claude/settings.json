@@ -1,0 +1,57 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__plugin_telegram_telegram__*",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Bash(*)",
+      "WebSearch",
+      "WebFetch",
+      "Agent"
+    ]
+  },
+  "allowedTools": [
+    "mcp__plugin_telegram_telegram__*",
+    "Read",
+    "Write",
+    "Edit",
+    "Glob",
+    "Grep",
+    "Bash(*)",
+    "WebSearch",
+    "WebFetch",
+    "Agent"
+  ],
+  "enabledPlugins": {
+    "telegram@claude-plugins-official": true
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/.claude/hooks/checkpoint.sh",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "resume|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/.claude/hooks/restore-checkpoint.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
