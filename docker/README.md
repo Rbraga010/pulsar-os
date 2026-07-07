@@ -51,8 +51,8 @@ Três coisas:
 Conecta na VPS por SSH e roda:
 
 ```
-git clone <repo-da-clara> /opt/clara
-cd /opt/clara/docker
+git clone <repo-da-clara> /opt/rentabiliza-ai
+cd /opt/rentabiliza-ai/docker
 ```
 
 (Substitui `<repo-da-clara>` pelo link que a PulsarH te passou.)
@@ -60,7 +60,7 @@ cd /opt/clara/docker
 
 ## Passo 4 · Configura o arquivo .env
 
-Ainda na pasta `/opt/clara/docker`:
+Ainda na pasta `/opt/rentabiliza-ai/docker`:
 
 ```
 cp .env.example .env

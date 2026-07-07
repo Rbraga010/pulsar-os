@@ -19,7 +19,7 @@ Spotlight (Cmd+Espaço) → digita "Terminal" → Enter.
 
 ### 3. Cria um pasta pra Clara
 ```bash
-mkdir -p ~/pulsar-os && cd ~/pulsar-os
+mkdir -p ~/rentabiliza-ai && cd ~/rentabiliza-ai
 ```
 
 ### 4. Baixa só o docker-compose.yml e .env.example
@@ -93,7 +93,7 @@ E segue o passo a passo do install.sh normalmente.
 
 Mac/Windows:
 ```bash
-cd ~/pulsar-os    # ou onde você criou
+cd ~/rentabiliza-ai    # ou onde você criou
 docker compose down
 ```
 

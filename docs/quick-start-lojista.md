@@ -83,16 +83,16 @@ Manda mensagem normal. Ela te avisa o que tá pendente.
 
 Se ela travar de vez, na sua VPS:
 ```bash
-systemctl restart clone-clara-telegram-bot.service
+cd /opt/rentabiliza-ai/docker && docker compose restart
 ```
 
 ## Onde vê histórico
 
-Toda conversa fica salva. Sua memória de cliente também. Tudo na sua VPS · zero cloud.
+Toda conversa fica salva. Sua memória de cliente também. Tudo na sua VPS · zero cloud. Fica guardado nos volumes Docker da Clara (sobrevive a restart e a atualização), e você acessa pelo terminal dela.
 
-- Memória do dono: `/opt/clones/clara/workspace/cerebro/memory/`
-- DB SQLite (CRM, follow-ups, posts): `/opt/clones/clara/workspace/data/clara.db`
-- Logs: `/opt/clones/clara/bot/logs/bot.log`
+- Instalação da Clara: `/opt/rentabiliza-ai/docker`
+- Memória do dono, DB SQLite (CRM, follow-ups, posts) e renders: dentro do container, em `/workspace/cerebro/memory` e `/workspace/data` (entra com `docker exec -it clara bash`)
+- Logs: `cd /opt/rentabiliza-ai/docker && docker compose logs -f`
 
 ## Suporte
 

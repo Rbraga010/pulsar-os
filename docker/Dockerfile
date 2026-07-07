@@ -64,7 +64,7 @@ RUN pip3 install --no-cache-dir \
     duckduckgo-search
 
 # Copia workspace inteiro · vamos instalar deps Node dentro dele
-# Build context é /opt/clones/clara/ · então workspace/ é direto
+# Build context é a raiz do repo (docker-compose.yml usa context: ..) · então workspace/ é direto
 COPY workspace /build/workspace
 
 WORKDIR /build/workspace

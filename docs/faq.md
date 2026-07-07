@@ -79,9 +79,9 @@ Não 100%. Tesseract OCR, Pix QR, DB SQLite funcionam offline. Mas Claude API (c
 ## Problemas comuns
 
 ### Ela não responde
-1. Checa systemctl: `systemctl status clone-clara-telegram-bot.service`
-2. Reinicia: `systemctl restart clone-clara-telegram-bot.service`
-3. Logs: `tail -50 /opt/clones/clara/bot/logs/bot.log`
+1. Checa se o container tá de pé: `cd /opt/rentabiliza-ai/docker && docker compose ps`
+2. Reinicia: `cd /opt/rentabiliza-ai/docker && docker compose restart`
+3. Logs: `cd /opt/rentabiliza-ai/docker && docker compose logs -f`
 
 Se persistir, abre issue no GitHub com snippet do log.
 

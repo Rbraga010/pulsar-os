@@ -122,12 +122,14 @@ Detalhes: `workspace/cerebro/skills/clara-tools-setup.md` (dentro do container).
 
 | Ação | Comando |
 |---|---|
-| Ver se tá rodando | `cd /opt/pulsar-os/docker && docker compose ps` |
-| Logs em tempo real | `cd /opt/pulsar-os/docker && docker compose logs -f` |
-| Reiniciar | `cd /opt/pulsar-os/docker && docker compose restart` |
-| Parar | `cd /opt/pulsar-os/docker && docker compose down` |
-| Atualizar versão | `cd /opt/pulsar-os/docker && docker compose pull && docker compose up -d` |
+| Ver se tá rodando | `cd /opt/rentabiliza-ai/docker && docker compose ps` |
+| Logs em tempo real | `cd /opt/rentabiliza-ai/docker && docker compose logs -f` |
+| Reiniciar | `cd /opt/rentabiliza-ai/docker && docker compose restart` |
+| Parar | `cd /opt/rentabiliza-ai/docker && docker compose down` |
+| Atualizar versão | `cd /opt/rentabiliza-ai/docker && docker compose pull && docker compose up -d` |
 | Terminal da Clara | `docker exec -it clara bash` |
+
+> **Atualização é manual.** A Clara não se atualiza sozinha. Quando sair uma versão nova, você roda o comando de "Atualizar versão" acima (`docker compose pull && docker compose up -d`) na sua VPS. A memória dela (dono, loja, metas, histórico) fica nos volumes Docker e sobrevive à atualização.
 
 ---
 
